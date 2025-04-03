@@ -1,4 +1,3 @@
-
 #include "Bridges.h"
 #include "ColorGrid.h"
 
@@ -10,8 +9,10 @@
 
 #include "DataSource.h"
 #include "data_src/ElevationData.h"
+
 using namespace std;
 using namespace bridges;
+
 
 // This program implements the mountain paths assignment in C++. See the README.md for a
 // detailed description
@@ -21,21 +22,28 @@ using namespace bridges;
 // visualization using BRIDGES
 ColorGrid getImage(const ElevationData& elev_data) {
   //TODO
-  //
-  //return a Color Grid that represents the elevation as gray scale
-  //
-  // access elevation with elev_data.getVal(row, col)
-  // compute the intensity by linear interpolation between elev_data.getMinVal(); and elev_data.getMaxVal();
-  //
-  // create ColorGrid with ColorGrid(nbrows, nbcols)
-  // fill ColorGrid with .set(row, col, color)
-  ColorGrid cg (1,1);
+
+  /*
+   return a Color Grid that represents the elevation as gray scale
+  
+   access elevation with elev_data.getVal(row, col)
+   compute the intensity by linear interpolation between elev_data.getMinVal(); and elev_data.getMaxVal();
+  
+   create ColorGrid with ColorGrid(nbrows, nbcols)
+
+   fill ColorGrid with .set(row, col, color) 
+
+  */
+
+  ColorGrid cg (1,1); //stub
   
   return cg;
+
 }
 
 // determines the least effort path through the mountain starting a point on
 // the left edge of the image
+
 void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
   //        Run the greedy path from (0, startRow) to the right of the image
   //
@@ -47,11 +55,13 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 
 int main(int argc, char **argv) {
 
-  // bridges object initialization
+  /*
+    bridges object initialization
+    initialize Bridges
+    bridges(saveSlot,userId,API_Key);
+  */
 
-
-  // initialize Bridges
-  Bridges bridges(123, "BRIDGES_USER_ID", "BRIDGES_API_KEY");
+  Bridges bridges(1, "Mcall555", "1301845300906");
 
   // defaults for row number and data file
   int startRow = 50;
