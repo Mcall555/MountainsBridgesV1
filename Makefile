@@ -1,5 +1,5 @@
 SRCS = mnt_path.cpp
-EXE=MountainPath
+EXE = MountainPath
 
 # Everything below that should not have to change ever.
 
