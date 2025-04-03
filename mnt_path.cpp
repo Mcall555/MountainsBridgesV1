@@ -11,12 +11,15 @@
 
 
 // imported from Bridges
+
 #include "Bridges.h"
 #include "ColorGrid.h"
 #include "DataSource.h"
 #include "data_src/ElevationData.h"
+#include "/public/read.h"
 
 // imported from C++
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -73,38 +76,53 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 
 int main(int argc, char **argv) {
 
-  /*
-    bridges object initialization
-    initialize Bridges
+	cout << endl;
+
+    int userChoice = read("Pick either Option 1 or Option 2: ");
+
+	cout << endl;
+
+	if (userChoice == 1) {
+
+      /*
+        bridges object initialization
+        initialize Bridges
     
-    💫 How to use our function:
-    bridges(saveSlot,userId,API_Key);
+        💫 How to use our function:
+        bridges(saveSlot,userId,API_Key);
 
-  */
+      */
 
-  Bridges bridges(1, "Mcall555", "1301845300906");
+      Bridges bridges(1, "Mcall555", "1301845300906");
 
-  // defaults for row number and data file
-  int startRow = 50;
+      // defaults for row number and data file
+      int startRow = 50;
+  
+      // set title
+      bridges.setTitle("Avoid Hillbilly Hell");
 
-  // set title
-  bridges.setTitle("Mountain Paths - Greedy Algorithms Example");
-  bridges.setDescription("Your goal is to find a path that takes you through the points with the lowest elevation changes, in an effort to minimize the overall effort in walking through the path.");
+  	  bridges.setDescription("Your goal is to find the path with least elevation change from one side to the other");
 
-  // get elevation data
-  DataSource ds;
-  ElevationData elev_data = ds.getElevationData(6.02, 44.10, 9.70, 47.77, 0.02);
+      // get elevation data
+      DataSource ds;
+      ElevationData elev_data = ds.getElevationData(6.02, 44.10, 9.70, 47.77, 0.02);
 
-  // color grid for visualization
-  ColorGrid cg = getImage(elev_data);
+      // color grid for visualization
+      ColorGrid cg = getImage(elev_data);
 
-  // find path by applying a greedy algorithm (the function we wrote above)
-  startRow = elev_data.getRows()/2;
-  findPath (elev_data, startRow, cg);
+      // find path by applying a greedy algorithm (the function we wrote above)
+      startRow = elev_data.getRows()/2;
+      findPath (elev_data, startRow, cg);
 
-  // visualize
-  bridges.setDataStructure(cg);
-  bridges.visualize();
+      // visualize
+      bridges.setDataStructure(cg);
+      bridges.visualize();
+
+
+	} else if (userChoice == 2){
+
+	}
+
 
   return 0; // end of program. Yippeeee!
 

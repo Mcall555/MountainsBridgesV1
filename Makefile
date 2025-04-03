@@ -4,9 +4,9 @@ EXE = MountainPath
 # Everything below that should not have to change ever.
 
 
-CXX=g++
-LD=g++
-CC=g++
+CXX = g++
+LD = g++
+CC = g++
 
 TARGET =  all 
 
