@@ -17,25 +17,26 @@
 #include <limits>
 
 // namespaces for ease of access 
+
 using namespace std;
 using namespace bridges;
 
-/*
-  This program implements the mountain paths assignment in C++. See the README.md for a
-  detailed description
-  takes in the processed elevation data and returns a color grid for
-  visualization using BRIDGES 
- */
+  /*
+    This program implements the mountain paths assignment in C++. See the README.md for a
+    detailed description this code takes in the processed elevation data and returns a color grid for
+    visualization using BRIDGES 
+  */
 
 ColorGrid getImage(const ElevationData& elev_data) {
   // TODO
 
   /*
-   return a Color Grid that represents the elevation as gray scale
-   access elevation with elev_data.getVal(row, col)
-   compute the intensity by linear interpolation between elev_data.getMinVal(); and elev_data.getMaxVal();
-   create ColorGrid with ColorGrid(nbrows, nbcols)
-   fill ColorGrid with .set(row, col, color) 
+    access elevation with elev_data.getVal(row, col)
+    compute the intensity by linear interpolation between elev_data.getMinVal(); and elev_data.getMaxVal();
+    create ColorGrid with ColorGrid(nbrows, nbcols)
+    fill ColorGrid with .set(row, col, color) 
+
+    💫 return a Color Grid that represents the elevation as gray scale
   */
 
   ColorGrid cg (1,1); //stub
@@ -46,26 +47,29 @@ ColorGrid getImage(const ElevationData& elev_data) {
 
  
 // determines the least effort path through the mountain starting a point on the left edge of the image
-
+    
 void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
-
+    
   // TODO
-  
+    
   /*
-   Run the greedy path from (0, startRow) to the right of the image
-   always move right, but select the right cell, the top right cell, or bottom right cell
-   by minimizing the difference of elevation.
-   Write path to the colorgrid 
-   */
-}
+    Run the greedy path from (0, startRow) to the right of the image
+    always move right, but select the right cell, the top right cell, or bottom right cell
+    by minimizing the difference of elevation.
+    
+    💫 Write path to the colorgrid 
+    
+  */
+    
+}   
 
 int main(int argc, char **argv) {
 
   /*
     bridges object initialization
     initialize Bridges
-
-    How to use our function:
+    
+    💫 How to use our function:
     bridges(saveSlot,userId,API_Key);
   */
 
