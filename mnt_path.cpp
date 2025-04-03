@@ -101,7 +101,7 @@ int main(int argc, char **argv) {
       // set title
       bridges.setTitle("Avoid Hillbilly Hell");
 
-  	  bridges.setDescription("Your goal is to find the path with least elevation change from one side to the other");
+      bridges.setDescription("Your goal is to find the path with least elevation change from one side to the other");
 
       // get elevation data
       DataSource ds;
