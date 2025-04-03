@@ -37,6 +37,7 @@ ColorGrid getImage(const ElevationData& elev_data) {
     fill ColorGrid with .set(row, col, color) 
 
     💫 return a Color Grid that represents the elevation as gray scale
+
   */
 
   ColorGrid cg (1,1); //stub
@@ -71,6 +72,7 @@ int main(int argc, char **argv) {
     
     💫 How to use our function:
     bridges(saveSlot,userId,API_Key);
+
   */
 
   Bridges bridges(1, "Mcall555", "1301845300906");
