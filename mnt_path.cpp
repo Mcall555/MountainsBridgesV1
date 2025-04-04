@@ -1,9 +1,9 @@
 /* 
-   Hello Ridha, all I did as of 4/3/2025 @ 1:36 AM was clean up the code, rearranged some stuff, and fixed indentation.
+   Hello Teamate, all I did as of 4/3/2025 @ 1:36 AM was clean up the code, rearranged some stuff, and fixed indentation.
    I plan on doing more soon, ttyl. -Gurshan
 
     How to run the code
-    ➡️ https://imgur.com/a/iCZkUe7
+    --> https://imgur.com/a/iCZkUe7 <--
    
 */
 
