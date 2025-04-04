@@ -118,7 +118,7 @@ int main(int argc, char **argv) {
 	if (userChoice == 1) {
 	     run(1,"Mcall555","1301845300906","Avoid Hillbilly Hell", "Your goal is to find the path with least elevation change from one side to the other");
 	} else if (userChoice == 2){
-             run(); //Read what I wrote in function for implamentaiton
+           //run(); //Read what I wrote in function for implamentaiton
 	}
 
 
