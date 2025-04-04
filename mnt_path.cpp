@@ -87,7 +87,8 @@ int main(int argc, char **argv) {
 	        bridges(saveSlot,userId,API_Key);
 	       */
 	
-	      Bridges bridges(1, "Mcall555", 1301845300906);
+	      Bridges bridges(1, "Mcall555", "1301845300906");
+		
 	
 	      // defaults for row number and data file
 	      int startRow = 50;
