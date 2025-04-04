@@ -7,9 +7,6 @@
    
 */
 
-
-
-
 // imported from Bridges
 
 #include "Bridges.h"
@@ -71,20 +68,13 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
     💫 Write path to the colorgrid 
     
   */
-    
+
 }   
 
-int main(int argc, char **argv) {
 
-	cout << endl;
-
-    int userChoice = read("Pick either Option 1 or Option 2: ");
-
-	cout << endl;
-
-	if (userChoice == 1) {
-
-      /*
+void run(int saveSlot, string userName, long int API_Key, string desc, string title){
+	
+       /*
         bridges object initialization
         initialize Bridges
     
@@ -93,15 +83,15 @@ int main(int argc, char **argv) {
 
       */
 
-      Bridges bridges(1, "Mcall555", "1301845300906");
+      Bridges bridges(saveSlot, userName, API_Key);
 
       // defaults for row number and data file
       int startRow = 50;
   
       // set title
-      bridges.setTitle("Avoid Hillbilly Hell");
+      bridges.setTitle(title);
 
-      bridges.setDescription("Your goal is to find the path with least elevation change from one side to the other");
+      bridges.setDescription(desc);
 
       // get elevation data
       DataSource ds;
@@ -111,16 +101,29 @@ int main(int argc, char **argv) {
       ColorGrid cg = getImage(elev_data);
 
       // find path by applying a greedy algorithm (the function we wrote above)
-      startRow = elev_data.getRows()/2;
+      startRow = elev_data.getRows()/2; //The middle. (middle of the left side I think.)
       findPath (elev_data, startRow, cg);
 
       // visualize
       bridges.setDataStructure(cg);
       bridges.visualize();
+}
 
 
+
+int main(int argc, char **argv) {
+
+	cout << endl;
+
+       int userChoice = read("Pick either Option 1 or Option 2: ");
+
+	cout << endl;
+
+	if (userChoice == 1) {
+	    //Format--> saveSlot, bridgesUsername, API_Key, desc, title
+	    run(1,"Mcall555",1301845300906,"Your goal is to find the path with least elevation change from one side to the other","Avoid Hillbilly Hell");
 	} else if (userChoice == 2){
-
+      
 	}
 
 
