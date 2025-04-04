@@ -71,59 +71,49 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 
 }   
 
-
-void run(int saveSlot, string userName, long int API_Key, string desc, string title){
-	
-       /*
-        bridges object initialization
-        initialize Bridges
-    
-        💫 How to use our function:
-        bridges(saveSlot,userId,API_Key);
-
-      */
-
-      Bridges bridges(saveSlot, userName, API_Key);
-
-      // defaults for row number and data file
-      int startRow = 50;
-  
-      // set title
-      bridges.setTitle(title);
-
-      bridges.setDescription(desc);
-
-      // get elevation data
-      DataSource ds;
-      ElevationData elev_data = ds.getElevationData(6.02, 44.10, 9.70, 47.77, 0.02);
-
-      // color grid for visualization
-      ColorGrid cg = getImage(elev_data);
-
-      // find path by applying a greedy algorithm (the function we wrote above)
-      startRow = elev_data.getRows()/2; //The middle. (middle of the left side I think.)
-      findPath (elev_data, startRow, cg);
-
-      // visualize
-      bridges.setDataStructure(cg);
-      bridges.visualize();
-}
-
-
-
 int main(int argc, char **argv) {
 
 	cout << endl;
 
-       int userChoice = read("Pick either Option 1 or Option 2: ");
+        int userChoice = read("Pick either Option 1 or Option 2: ");
 
 	cout << endl;
 
 	if (userChoice == 1) {
-	    //Format--> saveSlot, bridgesUsername, API_Key, desc, title
-	    run(1,"Mcall555",1301845300906,"Your goal is to find the path with least elevation change from one side to the other","Avoid Hillbilly Hell");
+	       /*
+	        bridges object initialization
+	        initialize Bridges
+	        💫 How to use our function:
+	        bridges(saveSlot,userId,API_Key);
+	       */
+	
+	      Bridges bridges(1, "Mcall555", 1301845300906);
+	
+	      // defaults for row number and data file
+	      int startRow = 50;
+	  
+	      // set title
+	      bridges.setTitle("Your goal is to find the path with least elevation change from one side to the other");
+	
+	      bridges.setDescription("Avoid Hillbilly Hell");
+	
+	      // get elevation data
+	      DataSource ds;
+	      ElevationData elev_data = ds.getElevationData(6.02, 44.10, 9.70, 47.77, 0.02);
+	
+	      // color grid for visualization
+	      ColorGrid cg = getImage(elev_data);
+	
+	      // find path by applying a greedy algorithm (the function we wrote above)
+	      startRow = elev_data.getRows()/2; //The middle. (middle of the left side I think.)
+	      findPath (elev_data, startRow, cg);
+	
+	      // visualize
+	      bridges.setDataStructure(cg);
+	      bridges.visualize();
+		
 	} else if (userChoice == 2){
-      
+        
 	}
 
 
