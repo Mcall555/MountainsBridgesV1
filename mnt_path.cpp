@@ -73,25 +73,25 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 
 }   
 
-void run(int saveSlot,string userName,string userAPI_Key, string title, string desc){
-           /*
-	        bridges object initialization
-	        initialize Bridges
-	        💫 How to use our function:
-	        bridges(saveSlot,userId,API_Key);
-	       */
+int main(int argc, char **argv) {
+	  /*
+	    bridges object initialization
+	    initialize Bridges
+	   💫 How to use our function:
+	    bridges(saveSlot,userId,API_Key);
+	  */
 
 	      //Make sure all of the paramaters are strings
-	      Bridges bridges(saveSlot, userName, userAPI_Key);
+	      Bridges bridges(1, "Mcall555", "1301845300906");
 		
 	
 	      // defaults for row number and data file
 	      int startRow = 50;
 	  
 	      // set title
-	      bridges.setTitle(title);
+	      bridges.setTitle("Avoid Hillbilly Hell");
 	
-	      bridges.setDescription(desc);
+	      bridges.setDescription("Your goal is to find the path with least elevation change from one side to the other");
 	
 	      // get elevation data
 	      DataSource ds;
@@ -107,22 +107,6 @@ void run(int saveSlot,string userName,string userAPI_Key, string title, string d
 	      // visualize
 	      bridges.setDataStructure(cg);
 	      bridges.visualize();
-}
-
-int main(int argc, char **argv) {
-
-	cout << endl;
-
-        int userChoice = read("Pick either Option 1 or Option 2: ");
-
-	cout << endl;
-
-	if (userChoice == 1) {
-	     run(1,"Mcall555","1301845300906","Avoid Hillbilly Hell", "Your goal is to find the path with least elevation change from one side to the other");
-	} else if (userChoice == 2){
-           //run(); //Read what I wrote in function for implamentaiton
-	}
-
 
   return 0; // end of program. Yippeeee!
 
