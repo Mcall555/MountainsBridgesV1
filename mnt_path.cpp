@@ -1,11 +1,11 @@
-/* 
-   Hello Teamate, all I did as of 4/5/2025 @ 1:36 AM was clean up the code, rearranged some stuff, and fixed indentation.
+ /* 
+   Hello Teamate, all I did as of 4/7/2025 was clean up the code, rearranged some stuff, and fixed indentation.
    I plan on doing more soon, ttyl. -Gurshan
 
     How to run the code
     --> https://imgur.com/a/iCZkUe7 <--
    
-*/
+ */
 
 // imported from Bridges
 
@@ -74,7 +74,7 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 }   
 
 void run(int saveSlot,string userName,string userAPI_Key, string title, string desc){
-               /*
+           /*
 	        bridges object initialization
 	        initialize Bridges
 	        💫 How to use our function:
