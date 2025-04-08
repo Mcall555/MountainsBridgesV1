@@ -88,15 +88,21 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 	 int cols = elev_data.getCols();
 	 int row = startRow;
 
+	 bridges::Color red(255, 0, 0);
+
+	 cg.set(row, 0, red);					//draw the starting point
+
 	 for (int col = 0; col < cols - 1; col++) {
-		int currentElev = elev_data.getVal(row, col);
-		//Possible next steps and their elevation changes
+		int currentVal = elev_data.getVal(row, col);
+		int nextCol = col + 1;
+
+		//Greedy choice
 		int bestRow = row;
 		int minChange = numeric_limits<int>::max();
 	
 		 //Check up-right (diagonal)
 		if (row > 0) {
-			int change = abs(currentElev - elev_data.getVal(row - 1, col + 1));
+			int change = abs(currentVal - elev_data.getVal(row - 1, nextCol));
 		if (change < minChange) {
 			minChange = change;
 			bestRow = row - 1;
@@ -104,7 +110,7 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 		 }
 		//Check right (straight)
 		{
-		int change = abs(currentElev - elev_data.getVal(row, col + 1));
+		int change = abs(currentVal - elev_data.getVal(row, nextCol));
 			if (change < minChange) {
 				minChange = change;
 				bestRow = row;
@@ -112,23 +118,19 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 	 }
 		//Check down-right (diagonal)
 		 if (row < rows - 1) {
-			int change = abs(currentElev - elev_data.getVal(row + 1, col + 1));
+			int change = abs(currentVal - elev_data.getVal(row + 1, nextCol));
 		if (change < minChange) {
 			minChange = change;
 			bestRow = row + 1;
 			 }
 		 }
-		//Draw red at (col,row)
-		bridges::Color red(255,0,0);
-		cg.set(row,col,red);
 
 		//Moves to next position
-		row = bestRow;
-}   
+		row = bestRow; 
 		//Draw red at the final column
-		bridges::Color red(255,0,0);
 		cg.set(row, cols - 1, red);
 }
+ }
 
 int main(int argc, char **argv) {
 	  /*
@@ -137,7 +139,7 @@ int main(int argc, char **argv) {
 	   💫 How to use our function:
 	    bridges(saveSlot,userId,API_Key);
 	  */
-
+try {
 	      //Make sure all of the paramaters are strings
 	      Bridges bridges(1, "Mcall555", "1301845300906");
 		
@@ -166,7 +168,9 @@ int main(int argc, char **argv) {
 	      bridges.visualize();
 
   return 0; // end of program. Yippeeee!
-
-}
+	 } catch (const char* msg) {
+			cerr << "Exception caught: " << msg << endl;
+	 }
+}	
 
 
