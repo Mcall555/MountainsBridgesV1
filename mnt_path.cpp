@@ -48,7 +48,7 @@ ColorGrid getImage(const ElevationData& elevData) {
   */
   	
     cout << "\tWidth: " << elevData.getCols() << endl;
-	cout << "\tHeigth: " << elevData.getRows() << endl;
+	cout << "\tHeight: " << elevData.getRows() << endl;
 	cout << "\tCell Size: " << elevData.getCellSize() << endl;
 	cout << "\tLower Left Corner: " << elevData.getxll() << ", " << elevData.getyll() << endl;
 
@@ -84,6 +84,32 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
     💫 Write path to the colorgrid 
     
   */
+	 int rows = elev_data.getRows();
+	 int cols = elev_data.getCols();
+	 int row = startRow;
+
+	 for (int col = 0; col < cols - 1; col++) {
+		int currentElev = elev_data.getVal(row, col);
+		//Possible next steps and their elevation changes
+		int bestRow = row;
+		int minChange = numeric_limits<int>::max();
+		//Check up-right (diagonal)
+		if (row > 0) {
+			int change = abs(currentElev - elev_data.getVal(row - 1, col + 1));
+		if (change < minChange) {
+			minChange = change;
+			bestRow = row - 1;
+			 }
+		 }
+		//Check right (straight)
+		{
+		int change = abs(currentElev - elev_data.getVal(row, col + 1));
+		if (change < minChange) {
+		minChange = change;
+		bestRow = row;
+		}
+	 }
+		//Check down-right (diagonal)
 
 }   
 
