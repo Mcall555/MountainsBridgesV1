@@ -34,7 +34,7 @@ using namespace bridges;
     visualization using BRIDGES 
   */
 
-ColorGrid getImage(const ElevationData& elev_data) {
+ColorGrid getImage(const ElevationData& elevData) {
   // TODO
 
   /*
@@ -46,9 +46,23 @@ ColorGrid getImage(const ElevationData& elev_data) {
     💫 return a Color Grid that represents the elevation as gray scale
 
   */
+  	
+    cout << "\tWidth: " << elevData.getCols() << endl;
+	cout << "\tHeigth: " << elevData.getRows() << endl;
+	cout << "\tCell Size: " << elevData.getCellSize() << endl;
+	cout << "\tLower Left Corner: " << elevData.getxll() << ", " << elevData.getyll() << endl;
 
-   
+	cout << "The first 10 elevation values: " << endl;
+    
+	for (int k = 0; k < 10; k++){
+       cout << "\t" << elevData.getVal(0,k) << endl;
+    }
 	
+	cout << endl;
+	
+	
+  //cout << elevData.getVal(row,col) << endl;
+   	
   ColorGrid cg (1,1); //stub
   
   return cg;
