@@ -14,7 +14,7 @@
 #include "DataSource.h"
 #include "data_src/ElevationData.h"
 #include "/public/read.h"
-
+#include "Color.h"
 // imported from C++
 
 #include <iostream>
@@ -119,13 +119,15 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 			 }
 		 }
 		//Draw red at (col,row)
-		cg.set(row,col,255,0,0);
+		bridges::Color red(255,0,0);
+		cg.set(row,col,red);
 
 		//Moves to next position
 		row = bestRow;
 }   
 		//Draw red at the final column
-		cg.set(row, cols - 1, 255, 0, 0);
+		bridges::Color red(255,0,0);
+		cg.set(row, cols - 1, red);
 }
 
 int main(int argc, char **argv) {
