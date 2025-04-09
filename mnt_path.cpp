@@ -90,7 +90,7 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 		int bestRow = row;
 		int minChange = numeric_limits<int>::max();
 	
-		 //Check up-right (diagonal)
+		//Check up-right (diagonal)
 		if (row > 0) {
 			int change = abs(currentVal - elev_data.getVal(row - 1, nextCol));
 		    if (change < minChange){
@@ -99,6 +99,7 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 			}
 		 }
 		//Check right (straight)
+
 		{
 		int change = abs(currentVal - elev_data.getVal(row, nextCol));
 			if (change < minChange){
@@ -117,6 +118,7 @@ void findPath(const ElevationData&  elev_data, int startRow, ColorGrid& cg) {
 
 		//Moves to next position
 		row = bestRow; 
+
 		//Draw red at the final column
 		cg.set(row, col, red); 
 		
